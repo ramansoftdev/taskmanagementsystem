@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Board {
+  id          Int       @id @default(autoincrement())
+  title       String    @db.VarChar(255)
+  description String?   @db.Text
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  columns     Column[]  // One board has many columns
+
+  @@map("boards")
+}
+
+model Column {
+  id        Int       @id @default(autoincrement())
+  boardId   Int       @map("board_id")  // Foreign key to Board
+  title     String    @db.VarChar(255)
+  position  Int
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  
+  // Relationship: Column belongs to Board, cascade delete
+  board     Board     @relation(fields: [boardId], references: [id], onDelete: Cascade)
+  tasks     Task[]    // One column has many tasks
+
+  @@index([boardId])  // Index foreign key for performance
+  @@map("columns")
+}
+
+model Task {
+  id          Int       @id @default(autoincrement())
+  columnId    Int       @map("column_id")  // Foreign key to Column
+  title       String    @db.VarChar(255)
+  description String?   @db.Text
+  position    Int
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  
+  // Relationship: Task belongs to Column, cascade delete
+  column      Column    @relation(fields: [columnId], references: [id], onDelete: Cascade)
+
+  @@index([columnId])  // Index foreign key for performance
+  @@map("tasks")
+}
