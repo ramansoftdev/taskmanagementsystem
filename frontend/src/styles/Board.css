@@ -1,0 +1,119 @@
+.board {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--body-bg);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .board-header {
+    padding: 24px 32px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--sidebar-bg);
+    transition: all 0.3s ease;
+  }
+  
+  .board-header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  
+  .btn-primary {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 14px 24px;
+    border-radius: 24px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  
+  .btn-primary:hover {
+    background-color: #a8a4ff;
+  }
+  
+  .board-columns {
+    flex: 1;
+    display: flex;
+    gap: 24px;
+    padding: 24px 32px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  
+  .board-columns::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .board-columns::-webkit-scrollbar-track {
+    background: var(--sidebar-bg);
+  }
+  
+  .board-columns::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+  }
+  
+  .board-columns::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+  }
+  
+  .board-empty {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    gap: 16px;
+  }
+  
+  .board-empty h2 {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  
+  .board-empty p {
+    font-size: 13px;
+  }
+  
+  .new-column-btn {
+    min-width: 280px;
+    height: 100%;
+    background: var(--column-bg);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 40px;
+  }
+  
+  .new-column-btn:hover {
+    background: linear-gradient(180deg, #635fc740 0%, #635fc720 100%);
+  }
+  
+  .new-column-btn span {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-secondary);
+  }
+  
+  .new-column {
+    min-width: 280px;
+    background-color: var(--card-bg);
+    border-radius: 6px;
+    padding: 16px;
+    margin-top: 40px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+  }
+  
+  .new-column input {
+    margin-bottom: 12px;
+  }
