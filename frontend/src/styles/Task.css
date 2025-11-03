@@ -1,0 +1,91 @@
+.task-card {
+    background-color: var(--card-bg);
+    padding: 23px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(54, 78, 126, 0.1);
+    border: 1px solid var(--border-color);
+  }
+  
+  .task-card:hover {
+    border-color: var(--primary-color);
+  }
+  
+  .task-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  
+  .task-card p {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  
+  .task-actions {
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  
+  .task-card:hover .task-actions {
+    opacity: 1;
+  }
+  
+  .btn-edit,
+  .btn-delete {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-edit {
+    background-color: var(--hover-bg);
+    color: var(--primary-color);
+  }
+  
+  .btn-edit:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+  }
+  
+  .btn-delete {
+    background-color: #ea55551a;
+    color: #ea5555;
+  }
+  
+  .btn-delete:hover {
+    background-color: #ea5555;
+    color: #ffffff;
+  }
+  
+  .task-card.editing {
+    background-color: var(--card-bg);
+    border: 2px solid var(--primary-color);
+    padding: 16px;
+  }
+  
+  .task-card.editing form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .task-card.editing input,
+  .task-card.editing textarea {
+    font-size: 13px;
+  }
+  
+  .task-card.editing .form-buttons button {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
